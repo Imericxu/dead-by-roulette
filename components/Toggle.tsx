@@ -1,4 +1,5 @@
 import { ChangeEventHandler } from "react";
+
 import Color from "../utils/colors";
 
 interface ToggleProps {

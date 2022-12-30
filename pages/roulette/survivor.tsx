@@ -1,13 +1,13 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useState } from "react";
 
 import { faDice } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import styles from "../../styles/roulette/Survivor.module.scss";
-import Toggle from "../../components/Toggle";
-import { useRouter } from "next/router";
 import RandomizeImage from "../../components/RandomizeImage";
+import Toggle from "../../components/Toggle";
+import styles from "../../styles/roulette/Survivor.module.scss";
 
 export default function Survivor(): JSX.Element {
   const router = useRouter();
@@ -61,7 +61,7 @@ export default function Survivor(): JSX.Element {
       <div style={{ height: 30 }}></div>
 
       <div className={styles.loadoutGroup}>
-        <RandomizeImage width={300} height={400} imgSrc="" altText="Survivor" />
+        <RandomizeImage width={300} height={400} />
       </div>
     </main>
   );

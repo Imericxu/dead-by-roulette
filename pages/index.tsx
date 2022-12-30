@@ -6,20 +6,20 @@ import { useRouter } from "next/router";
 import killerIcon from "../public/images/killer-icon.png";
 import survivorIcon from "../public/images/survivor-icon.png";
 import styles from "../styles/Home.module.scss";
+import { ImageData } from "../utils/models";
 
 interface RoleButtonProps {
-  imgSrc: string | StaticImageData;
-  altText: string;
+  imgData: ImageData;
   text: string;
 }
 
-function RoleButton({ imgSrc, altText, text }: RoleButtonProps): JSX.Element {
+function RoleButton({ imgData, text }: RoleButtonProps): JSX.Element {
   return (
     <div className={styles.roleButton}>
       <Image
         className={styles.roleButton__image}
-        src={imgSrc}
-        alt={altText}
+        src={imgData.src}
+        alt={imgData.altText}
         width={200}
         priority
       />
@@ -55,15 +55,13 @@ export default function Home(): JSX.Element {
           <section className={styles.roleButtonsWrapper}>
             <Link href="/roulette/survivor">
               <RoleButton
-                imgSrc={survivorIcon}
-                altText="Survivor Icon"
+                imgData={{ src: survivorIcon, altText: "Survivor Icon" }}
                 text="Survivor"
               />
             </Link>
             <Link href="/roulette/killer">
               <RoleButton
-                imgSrc={killerIcon}
-                altText="Killer Icon"
+                imgData={{ src: killerIcon, altText: "Killer Icon" }}
                 text="Killer"
               />
             </Link>
