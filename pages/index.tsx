@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 import killerIcon from "../public/images/killer-icon.png";
 import survivorIcon from "../public/images/survivor-icon.png";
@@ -28,6 +29,18 @@ function RoleButton({ imgSrc, altText, text }: RoleButtonProps): JSX.Element {
 }
 
 export default function Home(): JSX.Element {
+  const router = useRouter();
+
+  function goToRandomRole(event: Event) {
+    event.preventDefault();
+    const doGoToSurvivor = Math.random() < 0.5;
+    if (doGoToSurvivor) {
+      router.push("/roulette/survivor");
+    } else {
+      router.push("/roulette/killer");
+    }
+  }
+
   return (
     <>
       <Head>
@@ -41,14 +54,14 @@ export default function Home(): JSX.Element {
           <h1>Dead by Roulette</h1>
 
           <section className={styles.roleButtonsWrapper}>
-            <Link href="">
+            <Link href="/roulette/survivor">
               <RoleButton
                 imgSrc={survivorIcon}
                 altText="Survivor Icon"
                 text="Survivor"
               />
             </Link>
-            <Link href="">
+            <Link href="/roulette/killer">
               <RoleButton
                 imgSrc={killerIcon}
                 altText="Killer Icon"
@@ -57,7 +70,11 @@ export default function Home(): JSX.Element {
             </Link>
           </section>
 
-          <button className={`${styles.pickOneButton}`} type="button">
+          <button
+            className={`${styles.pickOneButton}`}
+            type="button"
+            onClick={goToRandomRole}
+          >
             Pick one for me!
           </button>
         </div>
