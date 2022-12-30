@@ -1,0 +1,28 @@
+@import "mixins";
+
+* {
+    color: $color-on-background;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background: $color-background;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+}

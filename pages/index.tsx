@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 
 import killerIcon from "../public/images/killer-icon.png";
 import survivorIcon from "../public/images/survivor-icon.png";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.scss";
 
 interface RoleButtonProps {
   imgSrc: string | StaticImageData;
@@ -15,7 +15,7 @@ interface RoleButtonProps {
 
 function RoleButton({ imgSrc, altText, text }: RoleButtonProps): JSX.Element {
   return (
-    <div className={`primary-surface z-depth-2dp ${styles.roleButton}`}>
+    <div className={styles.roleButton}>
       <Image
         className={styles.roleButton__image}
         src={imgSrc}
@@ -31,8 +31,7 @@ function RoleButton({ imgSrc, altText, text }: RoleButtonProps): JSX.Element {
 export default function Home(): JSX.Element {
   const router = useRouter();
 
-  function goToRandomRole(event: Event) {
-    event.preventDefault();
+  function goToRandomRole() {
     const doGoToSurvivor = Math.random() < 0.5;
     if (doGoToSurvivor) {
       router.push("/roulette/survivor");
@@ -71,7 +70,7 @@ export default function Home(): JSX.Element {
           </section>
 
           <button
-            className={`${styles.pickOneButton}`}
+            className={`${styles.randomButton}`}
             type="button"
             onClick={goToRandomRole}
           >
