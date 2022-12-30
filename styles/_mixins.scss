@@ -1,16 +1,27 @@
 $color-background: #201a19;
 $color-on-background: #ede0dd;
-$color-outline: #a08c89;
+
 $color-surface: #201a19;
 $color-on-surface: #ede0dd;
+
+$color-surface-variant: #534341;
+$color-on-surface-variant: #d8c2be;
+
+$color-dimmed: #d0c4c2;
+
 $color-primary: #ffb4a8;
 $color-on-primary: #690000;
+
 $color-secondary: #fabd00;
 $color-on-secondary: #3f2e00;
+
 $color-primary-surface: #930201;
 $color-on-primary-surface: #ffdad4;
+
 $color-secondary-surface: #5b4300;
 $color-on-secondary-surface: #ffdf9d;
+
+$color-outline: #a08c89;
 
 @mixin z-depth-2dp() {
     box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
@@ -45,4 +56,26 @@ $color-on-secondary-surface: #ffdf9d;
 
 @mixin outlined() {
     border: solid 1px $color-outline;
+}
+
+@mixin underline-animation($color, $height: 2) {
+    display: inline-block;
+    position: relative;
+
+    &::after {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: $height;
+        background: $color;
+        content: "";
+        transform: scaleX(0);
+        transform-origin: bottom left;
+        transition: 0.2s ease-out;
+    }
+
+    &:hover::after {
+        transform: scaleX(1);
+    }
 }

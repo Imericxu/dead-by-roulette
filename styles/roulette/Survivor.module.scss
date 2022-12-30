@@ -1,0 +1,47 @@
+@import "../mixins";
+
+.page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+}
+
+.titleGroup {
+    display: flex;
+    align-items: baseline;
+    gap: 30px;
+}
+
+.goToText {
+    font-size: 20px;
+    color: $color-dimmed;
+}
+
+.randomRoleButton {
+    @include underline-animation($color-secondary, 2px);
+    background: $color-surface;
+    font-size: inherit;
+    padding: 0;
+
+    path {
+        fill: $color-secondary;
+    }
+
+    &::after {
+        bottom: -2px;
+    }
+}
+
+.toggleGroup {
+    @include z-depth-4dp;
+    display: flex;
+    gap: 20px;
+    padding: 15px;
+    border-radius: 10px;
+    background: mix($color-surface, rgba($color-primary, 40%));
+}
+
+.loadoutGroup {
+    display: flex;
+}

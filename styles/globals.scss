@@ -26,3 +26,9 @@ button {
     cursor: pointer;
     border: none;
 }
+
+.link-text {
+    @include underline-animation($color-secondary, 2px);
+    color: $color-secondary;
+    font-weight: 500;
+}
