@@ -1,6 +1,6 @@
 import { ChangeEventHandler } from "react";
 
-import Color from "../utils/colors";
+import AppColor from "../utils/colors";
 
 interface ToggleProps {
   label?: string;
@@ -22,7 +22,7 @@ export default function Toggle({
           type="checkbox"
           checked={isChecked}
           onChange={onChange}
-          style={{ accentColor: Color.primary }}
+          style={{ accentColor: AppColor.primary }}
         />
       </label>
     </>

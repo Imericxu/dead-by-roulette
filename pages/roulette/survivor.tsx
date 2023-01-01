@@ -5,9 +5,11 @@ import { useState } from "react";
 import { faDice } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import RandomizeImage from "../../components/RandomizeImage";
 import Toggle from "../../components/Toggle";
+import bbqAndChilliImage from "../../public/images/perks/barbeque-and-chilli.png";
+import vittorioImage from "../../public/images/survivors/vitorrio-big.webp";
 import styles from "../../styles/roulette/Survivor.module.scss";
+import { Shape } from "../../utils/models";
 
 export default function Survivor(): JSX.Element {
   const router = useRouter();
@@ -60,9 +62,7 @@ export default function Survivor(): JSX.Element {
 
       <div style={{ height: 30 }}></div>
 
-      <div className={styles.loadoutGroup}>
-        <RandomizeImage width={300} height={400} />
-      </div>
+      <div className={styles.loadoutGroup}></div>
     </main>
   );
 }

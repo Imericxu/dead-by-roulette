@@ -1,6 +1,12 @@
 import { StaticImageData } from "next/image";
 
-export interface ImageData {
+export interface ImageInfo {
   src: string | StaticImageData;
-  altText: string;
+  alt: string;
+}
+
+export enum Shape {
+  rectangle,
+  diamond,
+  hexagon,
 }
