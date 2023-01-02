@@ -1,0 +1,15 @@
+@import "../mixins";
+
+.container {
+    &--rectangle {
+        border-radius: 8px;
+    }
+
+    &--diamond {
+        @include mask(url(/images/diamond.svg));
+    }
+
+    &--hexagon {
+        @include mask(url(/images/hexagon.svg));
+    }
+}
