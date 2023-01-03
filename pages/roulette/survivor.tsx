@@ -6,7 +6,7 @@ import { useState } from "react";
 import { faDice } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import ShapedContainer from "../../components/ShapedContainer";
+import RandomizedImage from "../../components/RandomizedImage";
 import Toggle from "../../components/Toggle";
 import imgSportFlashlight from "../../public/images/items/sport-flashlight.webp";
 import imgEbonyMementoMori from "../../public/images/offerings/ebony-memento-mori.webp";
@@ -14,13 +14,14 @@ import imgBbqAndChilli from "../../public/images/perks/barbeque-and-chilli.png";
 import imgVittorio from "../../public/images/survivors/vittorio-big.webp";
 import styles from "../../styles/roulette/Survivor.module.scss";
 import { Shape } from "../../utils/models";
-import RandomizedImage from "../../components/RandomizedImage";
+import Rarity from "../../utils/rarity";
 
 export default function Survivor(): JSX.Element {
-  const router = useRouter();
   const [isCharacterEnabled, setCharacterEnabled] = useState(true);
   const [isItemEnabled, setItemEnabled] = useState(true);
   const [arePerksEnabled, setPerksEnabled] = useState(true);
+
+  const router = useRouter();
 
   function goToRandomRole() {
     const doGoToSurvivor = Math.random() < 0.5;
@@ -70,7 +71,7 @@ export default function Survivor(): JSX.Element {
 
       <div className={styles.loadoutGroup}>
         <RandomizedImage
-          width={300}
+          width={325}
           height={350}
           shape={Shape.rectangle}
           imgInfo={{ src: imgVittorio, alt: "Vittorio" }}
@@ -79,18 +80,24 @@ export default function Survivor(): JSX.Element {
           width={120}
           height={120}
           shape={Shape.rectangle}
+          rarity={Rarity.common}
+          borderSize={3}
           imgInfo={{ src: imgSportFlashlight, alt: "Sport Flashlight" }}
         />
         <RandomizedImage
           width={100}
           height={100}
           shape={Shape.diamond}
+          rarity={Rarity.veryRare}
+          borderSize={4}
           imgInfo={{ src: imgBbqAndChilli, alt: "Barbeque and Chilli" }}
         />
         <RandomizedImage
           width={150}
           height={150}
           shape={Shape.hexagon}
+          rarity={Rarity.ultraRare}
+          borderSize={3}
           imgInfo={{ src: imgEbonyMementoMori, alt: "Ebony Memonto Mori" }}
         />
       </div>

@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode } from "react";
+import { CSSProperties, MouseEventHandler, ReactNode } from "react";
 
 import styles from "../styles/components/ShapedContainer.module.scss";
 import { Shape } from "../utils/models";
@@ -8,6 +8,8 @@ interface ShapedContainerProps {
   className?: string;
   style?: CSSProperties;
   children?: ReactNode;
+  onMouseEnter?: MouseEventHandler;
+  onMouseLeave?: MouseEventHandler;
 }
 
 export default function ShapedContainer({
@@ -15,6 +17,8 @@ export default function ShapedContainer({
   className,
   style,
   children,
+  onMouseEnter,
+  onMouseLeave,
 }: ShapedContainerProps): JSX.Element {
   let containerStyle = styles.container;
   switch (shape) {
@@ -30,7 +34,12 @@ export default function ShapedContainer({
   }
 
   return (
-    <div className={`${containerStyle} ${className}`} style={style}>
+    <div
+      className={`${containerStyle} ${className}`}
+      style={style}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       <>{children}</>
     </div>
   );
